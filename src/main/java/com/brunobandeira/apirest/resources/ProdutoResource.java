@@ -1,7 +1,7 @@
 package com.brunobandeira.apirest.resources;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -41,23 +41,26 @@ public class ProdutoResource {
 	*/
 	
 	
-	
+	/*
+	 * Salva os produtos no BD
+	 * 
 	@PostMapping("/produto") //Salva algum produto
 	public Produto salvaProduto(@RequestBody Produto produto) {
 		return produtoRepository.save(produto);
 	}
+	*/
 	
+	/*
+	@DeleteMapping("/produto") 
+	public void deletaProduto(@RequestBody Produto produto) {
+		 produtoRepository.delete(produto);
+	}
+	*/
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	@PutMapping("/produto") //Atualiza um produto
+	public Produto atualizaProduto(@RequestBody Produto produto) {
+		return produtoRepository.save(produto);
+	}
 }
 
 
