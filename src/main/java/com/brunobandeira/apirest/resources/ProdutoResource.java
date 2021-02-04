@@ -1,6 +1,7 @@
 package com.brunobandeira.apirest.resources;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,8 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.brunobandeira.apirest.models.Produto;
 import com.brunobandeira.apirest.repository.ProdutoRepository;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 @RestController //recebe as requisições HTTP
 @RequestMapping(value = "/api") //Mostra o endereço de uma aplicação
+@Api(value = "API REST Produtos")
+@CrossOrigin(origins = "*") //Libera o dominio para todos da API
 public class ProdutoResource {
 	
 	@Autowired //Podemos utilizar os métodos de outro classe atravéz desta notação
@@ -58,6 +64,7 @@ public class ProdutoResource {
 	*/
 	
 	@PutMapping("/produto") //Atualiza um produto
+	@ApiOperation(value = "Deleta um dado do BD") //Mostra oq o método faz, é apenas uma descrição
 	public Produto atualizaProduto(@RequestBody Produto produto) {
 		return produtoRepository.save(produto);
 	}
